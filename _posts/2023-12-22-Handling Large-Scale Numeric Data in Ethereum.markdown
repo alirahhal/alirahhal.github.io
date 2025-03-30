@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Handling Large-Scale Numeric Data in Ethereum"
-date:   2025-03-30 08:49:56 +0300
+date:   2023-12-22
 ---
 
 # Handling Large-Scale Numeric Data in Ethereum
