@@ -1,1 +1,63 @@
-Hello World
+---
+layout: default
+title: home
+---
+
+<style type="text/css" media="screen">
+    .social-links {
+        margin: 20px 0;
+
+        a {
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+            font-size: 1.1em;
+
+            &:hover {
+            color: #0077b5;
+            }
+
+            i {
+            margin-right: 5px;
+            }
+        }
+    }
+</style>
+
+<section class="about">
+  <h1>About Me</h1>
+  <p>Software Engineer.</p>
+
+  <div class="social-links">
+    {% if site.social.github %}Github:
+      <a href="{{ site.social.github }}" target="_blank">
+        @alirahhal
+      </a>
+    {% endif %}<br>
+
+    {% if site.social.linkedin %}Linkedin:
+      <a href="https://{{ site.social.linkedin }}" target="_blank">
+        @arahhal997
+      </a>
+    {% endif %}<br>
+
+    {% if site.social.email %}Email:
+      <a href="mailto:{{ site.social.email }}">
+        arahhal997@gmail.com
+      </a>
+    {% endif %}
+  </div>
+
+</section>
+
+<section class="blog-list">
+  <h2>Blogs</h2>
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small>{{ post.date | date: "%b %d, %Y" }}</small>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
