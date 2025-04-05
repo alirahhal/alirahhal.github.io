@@ -1,63 +1,82 @@
 ---
 layout: default
-title: home
+title: Home
 ---
 
 <style type="text/css" media="screen">
-    .social-links {
-        margin: 20px 0;
+  .social-links {
+    margin: 20px 0;
 
-        a {
-            margin-right: 15px;
-            color: #333;
-            text-decoration: none;
-            font-size: 1.1em;
+    a {
+      margin-right: 20px;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.1em;
+      display: inline-flex;
+      align-items: center;
+      transition: color 0.3s ease;
 
-            &:hover {
-            color: #0077b5;
-            }
+      &:hover {
+        color: #0077b5;
+      }
 
-            i {
-            margin-right: 5px;
-            }
-        }
+      i {
+        margin-right: 8px;
+        font-size: 1.2em;
+      }
     }
+  }
+
+  .intro {
+    margin-bottom: 2em;
+  }
+
+  .blog-list {
+    margin-top: 2em;
+  }
+
+  .blog-list h2 {
+    margin-bottom: 1em;
+  }
 </style>
 
-<section class="about">
-  <h1>About Me</h1>
-  <p>Software Engineer.</p>
+<section class="intro">
+  <h1>Hi, I'm Ali Rahhal 👋</h1>
+  <p>I'm a Software Engineer passionate about building great software.</p>
+  <p>Check out my <a href="/about">about page</a> to learn more about me.</p>
 
   <div class="social-links">
-    {% if site.social.github %}Github:
-      <a href="https://{{ site.social.github }}" target="_blank">
-        @alirahhal
-      </a>
-    {% endif %}<br>
+    {% if site.social.github %}
+    <a href="https://{{ site.social.github }}" target="_blank">
+      <i class="fab fa-github"></i>
+      <span>GitHub</span>
+    </a>
+    {% endif %}
 
-    {% if site.social.linkedin %}Linkedin:
-      <a href="https://{{ site.social.linkedin }}" target="_blank">
-        @arahhal997
-      </a>
-    {% endif %}<br>
+    {% if site.social.linkedin %}
+    <a href="https://{{ site.social.linkedin }}" target="_blank">
+      <i class="fab fa-linkedin"></i>
+      <span>LinkedIn</span>
+    </a>
+    {% endif %}
 
-    {% if site.social.email %}Email:
-      <a href="mailto:{{ site.social.email }}">
-        arahhal997@gmail.com
-      </a>
+    {% if site.social.email %}
+    <a href="mailto:{{ site.social.email }}">
+      <i class="fas fa-envelope"></i>
+      <span>Email</span>
+    </a>
     {% endif %}
   </div>
-
 </section>
 
 <section class="blog-list">
-  <h2>Blogs</h2>
+  <h2>Recent Posts</h2>
   <ul>
-    {% for post in site.posts %}
-      <li>
-        <a href="{{ post.url }}">{{ post.title }}</a>
-        <small>{{ post.date | date: "%b %d, %Y" }}</small>
-      </li>
+    {% for post in site.posts limit:5 %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+      <small>{{ post.date | date: "%b %d, %Y" }}</small>
+    </li>
     {% endfor %}
   </ul>
 </section>
